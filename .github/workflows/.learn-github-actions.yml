@@ -1,13 +1,19 @@
 name: learn-github-actions
 on: [push]
 jobs:
-  docker-test:
-      name: CI
-      runs-on: ubuntu-latest
-      env:
-          DOCKER_BUILDKIT: "1"
-      steps:
-        - name: Checkout code
-          uses: actions/checkout@v2
-        - name: Build and test docker image
-          run: make docker-test
+  build-linux:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+    - name: Install dependencies
+      run: |
+        # $CONDA is an environment variable pointing to the root of the miniconda directory
+        $CONDA/bin/conda env update --file environment.yml --name base
+    - name: numpy
+      run: |
+        $CONDA/bin/conda install numpy==1.15.4
