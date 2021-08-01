@@ -17,4 +17,4 @@ jobs:
       - name: Install with conda install
         shell: bash -l {0}
         run: |
-          conda install numpy
+          conda install numpy==1.15.4
