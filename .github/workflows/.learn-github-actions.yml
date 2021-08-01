@@ -17,7 +17,4 @@ jobs:
       - name: Install with conda install
         shell: bash -l {0}
         run: |
-          conda install numpy==1.15.4 \
-            scipy==1.2.0 \
-            scikit-learn==0.20.2 \ 
-            matplotlib==2.2.3 \
+          conda install numpy==1.15.4 scipy==1.2.0 scikit-learn==0.20.2 matplotlib==2.2.3
